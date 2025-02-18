@@ -37,24 +37,24 @@ public class threeDimensionalShape {
                 //calculate slope
                 xSlope=(double)((zPoint)-observerZ)/(curFace.getCoordinate(j,0)-observerX);
                 ySlope=(double)(zPoint-observerZ)/(curFace.getCoordinate(j,1)-observerY);                //calculate points
+               // if(curFace.getCoordinate(j,0)>500)
                 threeDFaces[i].setCoordinate(j,0, curFace.getCoordinate(j,0)-(int)(paneZ/xSlope));
+                //else
+                   // threeDFaces[i].setCoordinate(j,0, curFace.getCoordinate(j,0)+(int)(paneZ/xSlope));
+  
                 threeDFaces[i].setCoordinate(j,1, curFace.getCoordinate(j,1) - (int)(paneZ/ySlope));
-                
             }
         }
     }
     public void draw(Graphics g){
         update();
         for(int i=0;i<threeDFaces.length;i++){
-          
+            System.out.println(threeDFaces[i].getFacePoints()[3][0]);
+            System.out.println(threeDFaces[i].getFacePoints()[3][1]);
+            System.out.println(threeDFaces[i].getFacePoints()[3][2]);
             g.drawPolygon(threeDFaces[i].getPointXs(),threeDFaces[i].getPointYs(),threeDFaces[i].getNumOfPoints());
         }
         
-    }
-    public void moveZ(int move){
-        for(int i=0;i<faces.length;i++){
-            faces[i].moveZ(move);
-        }
     }
 
     public int[] getZ() {

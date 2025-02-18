@@ -36,6 +36,11 @@ public class testf extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         newJPanel1.setPreferredSize(new java.awt.Dimension(1000, 800));
+        newJPanel1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
+            public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
+                newJPanel1MouseWheelMoved(evt);
+            }
+        });
         newJPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 newJPanel1MousePressed(evt);
@@ -82,13 +87,22 @@ public class testf extends javax.swing.JFrame {
     private void newJPanel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newJPanel1MouseReleased
         int x = evt.getX();
         int y = evt.getY();
-        speed[0] = x - mouseStart[0];
-        speed[1] = y - mouseStart[1];
+        speed[0] = (x - mouseStart[0]) * 10;
+        speed[1] = (y - mouseStart[1]) * 10;
       
         threeDimensionalShape.setObserverX(threeDimensionalShape.getObserverX() + speed[0]);
         threeDimensionalShape.setObserverY(threeDimensionalShape.getObserverY() + speed[1]);
         repaint();
     }//GEN-LAST:event_newJPanel1MouseReleased
+
+    private void newJPanel1MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_newJPanel1MouseWheelMoved
+        int mouseWheel = evt.getWheelRotation();
+        if (mouseWheel > 0) {
+            threeDimensionalShape.setObserverZ(threeDimensionalShape.getObserverZ() - 100);
+        } else if (mouseWheel < 0) {
+            threeDimensionalShape.setObserverZ(threeDimensionalShape.getObserverZ() + 100);
+        }
+    }//GEN-LAST:event_newJPanel1MouseWheelMoved
 
     /**
      * @param args the command line arguments

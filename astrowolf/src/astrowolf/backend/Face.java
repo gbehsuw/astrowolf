@@ -24,11 +24,7 @@ public class Face {
             facePoints[i][2]=z[i];
         }
     }
-    public void moveZ(int move){
-        for(int i=0;i<numOfPoints;i++){
-            facePoints[i][2]=facePoints[i][2]+move;
-        }
-    }
+    
     public Face(int numPoints){
         numOfPoints = numPoints;
         facePoints=new int[numPoints][3];
@@ -61,6 +57,14 @@ public class Face {
         int[] output=new int[numOfPoints];
         for(int i=0;i<numOfPoints;i++){
             output[i]=facePoints[i][1];
+        }
+        return output;
+    }
+        
+    public int[] getPointZs(){
+        int[] output=new int[numOfPoints];
+        for(int i=0;i<numOfPoints;i++){
+            output[i]=facePoints[i][2];
         }
         return output;
     }
