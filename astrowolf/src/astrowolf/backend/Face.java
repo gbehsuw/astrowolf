@@ -14,22 +14,27 @@ public class Face {
     private int numOfPoints;
     private int[] RGB;
     
+    // Face constructor
     public Face(int[] face){
         
         this.face = face;
         numOfPoints = face.length;
         
-        
     }
     
+    // Set the colour of the face
     private void setColour(int R, int G, int B){
         RGB[0] = R;
         RGB[1] = G;
         RGB[2] = B;
     }
+    
+    // Get the colour of the face
     private int[] getColour(){
         return RGB;
     }
+    
+    // Get the points of the face
     private int[] getFace(){
         return face;
     }
