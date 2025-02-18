@@ -22,7 +22,8 @@ public class threeDimensionalShape {
     public threeDimensionalShape(Face[] faces, int numFaces){
         this.faces=new Face [numFaces];
         threeDFaces=new Face[numFaces];
-        Arrays.fill(threeDFaces, new Face(4));
+        for(int i=0;i<numFaces;i++){
+        threeDFaces[i]= new Face(4);}
         for(int i=0;i<numFaces;i++){
             this.faces[i]=faces[i];
         }
@@ -43,15 +44,17 @@ public class threeDimensionalShape {
                    // threeDFaces[i].setCoordinate(j,0, curFace.getCoordinate(j,0)+(int)(paneZ/xSlope));
   
                 threeDFaces[i].setCoordinate(j,1, curFace.getCoordinate(j,1) - (int)(paneZ/ySlope));
+//                xSlope=(double)((zPoint)-observerZ)/(curFace.getCoordinate(j,0)-observerX);
+//                ySlope=(double)(zPoint-observerZ)/(curFace.getCoordinate(j,1)-observerY);                //calculate points
+                threeDFaces[i].setCoordinate(j,0, curFace.getCoordinate(j,0)*paneZ/zPoint);
+                threeDFaces[i].setCoordinate(j,1, curFace.getCoordinate(j,1)*paneZ/zPoint);
+                
             }
         }
     }
     public void draw(Graphics g){
         update();
         for(int i=0;i<threeDFaces.length;i++){
-            System.out.println(threeDFaces[i].getFacePoints()[3][0]);
-            System.out.println(threeDFaces[i].getFacePoints()[3][1]);
-            System.out.println(threeDFaces[i].getFacePoints()[3][2]);
             g.drawPolygon(threeDFaces[i].getPointXs(),threeDFaces[i].getPointYs(),threeDFaces[i].getNumOfPoints());
         }
         

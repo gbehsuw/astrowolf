@@ -11,6 +11,6 @@ package astrowolf.backend;
  * @author ddrtm
  */
 public class Const {
-    public static int screenWidth=0;
-    public static int screenHeight=0;
+    public static int screenWidth=1000;
+    public static int screenHeight=800;
 }

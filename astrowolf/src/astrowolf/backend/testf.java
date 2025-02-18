@@ -16,7 +16,7 @@ public class testf extends javax.swing.JFrame {
     int[] speed = new int[] {0,0};
 
     /**
-     * Creates new form testf
+     * Creates new form 
      */
     public testf() {
         initComponents();
@@ -80,27 +80,25 @@ public class testf extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newJPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newJPanel1MousePressed
-        mouseStart[0] = evt.getX();
-        mouseStart[1] = evt.getY();
+//        mouseStart[0] = evt.getX();
+//        mouseStart[1] = evt.getY();
     }//GEN-LAST:event_newJPanel1MousePressed
 
     private void newJPanel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newJPanel1MouseReleased
-        int x = evt.getX();
-        int y = evt.getY();
-        speed[0] = (x - mouseStart[0]) * 10;
-        speed[1] = (y - mouseStart[1]) * 10;
-      
-        threeDimensionalShape.setObserverX(threeDimensionalShape.getObserverX() + speed[0]);
-        threeDimensionalShape.setObserverY(threeDimensionalShape.getObserverY() + speed[1]);
-        repaint();
+//        int x = evt.getX();
+//        int y = evt.getY();
+//        speed[0] = (x - mouseStart[0]);
+//        speed[1] = (y - mouseStart[1]);
+//        threeDimensionalShape.setObserverX(threeDimensionalShape.getObserverX() + speed[0]);
+//        threeDimensionalShape.setObserverY(threeDimensionalShape.getObserverY() + speed[1]);
     }//GEN-LAST:event_newJPanel1MouseReleased
 
     private void newJPanel1MouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_newJPanel1MouseWheelMoved
         int mouseWheel = evt.getWheelRotation();
         if (mouseWheel > 0) {
-            threeDimensionalShape.setObserverZ(threeDimensionalShape.getObserverZ() - 100);
+            threeDimensionalShape.setPaneZ(threeDimensionalShape.getPaneZ() - 5);
         } else if (mouseWheel < 0) {
-            threeDimensionalShape.setObserverZ(threeDimensionalShape.getObserverZ() + 100);
+            threeDimensionalShape.setPaneZ(threeDimensionalShape.getPaneZ() + 5);
         }
     }//GEN-LAST:event_newJPanel1MouseWheelMoved
 
