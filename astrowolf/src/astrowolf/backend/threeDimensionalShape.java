@@ -26,8 +26,8 @@ public class threeDimensionalShape {
         }
     }
     public void update(){
-        int xSlope;
-        int ySlope;
+        double xSlope;
+        double ySlope;
         for(int i=0;i<faces.length;i++){
             Face curFace=faces[i];
             for(int j=0;j<faces.length;j++){
@@ -36,8 +36,8 @@ public class threeDimensionalShape {
                 xSlope=((zPoint)-observerZ)/(curFace.getCoordinate(j,0)-observerX);
                 ySlope=(zPoint-observerZ)/(curFace.getCoordinate(j,1)-observerY);
                 //calculate points
-                threeDFaces[i].setCoordinate(j,0, paneZ/xSlope);
-                threeDFaces[i].setCoordinate(j,1,paneZ/ySlope);
+                threeDFaces[i].setCoordinate(j,0, (int)(paneZ/xSlope));
+                threeDFaces[i].setCoordinate(j,1,(int)(paneZ/ySlope));
             }
         }
     }
