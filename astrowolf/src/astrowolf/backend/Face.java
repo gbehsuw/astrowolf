@@ -25,9 +25,7 @@ public class Face {
         }
     }
     public void moveZ(int move){
-        System.out.println("run");
         for(int i=0;i<numOfPoints;i++){
-            System.out.println("run");
             facePoints[i][2]=facePoints[i][2]+move;
         }
     }
@@ -54,7 +52,6 @@ public class Face {
     }
     public int[] getPointXs(){
         int[] output=new int[numOfPoints];
-        System.out.println(numOfPoints);
         for(int i=0;i<numOfPoints;i++){
             output[i]=facePoints[i][0];
         }

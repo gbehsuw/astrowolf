@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package astrowolf.backend;
-
+import astrowolf.backend.threeDimensionalShape;
 import java.awt.Graphics;
 import javax.swing.JFrame;
 
@@ -12,6 +12,8 @@ import javax.swing.JFrame;
  * @author ddrtm
  */
 public class testf extends javax.swing.JFrame {
+    int[] mouseStart = new int[2];
+    int[] speed = new int[] {0,0};
 
     /**
      * Creates new form testf
@@ -33,15 +35,25 @@ public class testf extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        newJPanel1.setPreferredSize(new java.awt.Dimension(1000, 800));
+        newJPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                newJPanel1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                newJPanel1MouseReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout newJPanel1Layout = new javax.swing.GroupLayout(newJPanel1);
         newJPanel1.setLayout(newJPanel1Layout);
         newJPanel1Layout.setHorizontalGroup(
             newJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 441, Short.MAX_VALUE)
+            .addGap(0, 1000, Short.MAX_VALUE)
         );
         newJPanel1Layout.setVerticalGroup(
             newJPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 331, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -49,20 +61,34 @@ public class testf extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(newJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(newJPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void newJPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newJPanel1MousePressed
+        mouseStart[0] = evt.getX();
+        mouseStart[1] = evt.getY();
+    }//GEN-LAST:event_newJPanel1MousePressed
+
+    private void newJPanel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newJPanel1MouseReleased
+        int x = evt.getX();
+        int y = evt.getY();
+        speed[0] = x - mouseStart[0];
+        speed[1] = y - mouseStart[1];
+      
+        threeDimensionalShape.setObserverX(threeDimensionalShape.getObserverX() + speed[0]);
+        threeDimensionalShape.setObserverY(threeDimensionalShape.getObserverY() + speed[1]);
+        repaint();
+    }//GEN-LAST:event_newJPanel1MouseReleased
 
     /**
      * @param args the command line arguments
@@ -95,7 +121,6 @@ public class testf extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame j=new testf();
-                j.setSize(1000,800);
                 j.setVisible(true);
                 
             }

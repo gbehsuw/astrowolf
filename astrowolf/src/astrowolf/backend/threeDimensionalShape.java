@@ -32,7 +32,6 @@ public class threeDimensionalShape {
         double ySlope;
         for(int i=0;i<faces.length;i++){
             Face curFace=faces[i];
-            System.out.println(faces[i].getNumOfPoints());
             for(int j=0;j<faces[i].getNumOfPoints();j++){
                 int zPoint=faces[i].getCoordinate(j,2);
                 //calculate slope
@@ -47,9 +46,7 @@ public class threeDimensionalShape {
     public void draw(Graphics g){
         update();
         for(int i=0;i<threeDFaces.length;i++){
-            
-            System.out.println(Arrays.toString(threeDFaces[i].getPointXs()));
-            System.out.println(Arrays.toString(threeDFaces[i].getPointYs()));
+          
             g.drawPolygon(threeDFaces[i].getPointXs(),threeDFaces[i].getPointYs(),threeDFaces[i].getNumOfPoints());
         }
         
@@ -59,4 +56,70 @@ public class threeDimensionalShape {
             faces[i].moveZ(move);
         }
     }
+
+    public int[] getZ() {
+        return z;
+    }
+
+    public static int getPaneZ() {
+        return paneZ;
+    }
+
+    public static int getObserverX() {
+        return observerX;
+    }
+
+    public static int getObserverY() {
+        return observerY;
+    }
+
+    public static int getObserverZ() {
+        return observerZ;
+    }
+
+    public Polygon getTwoD() {
+        return twoD;
+    }
+
+    public Face[] getThreeDFaces() {
+        return threeDFaces;
+    }
+
+    public Face[] getFaces() {
+        return faces;
+    }
+
+    public void setZ(int[] z) {
+        this.z = z;
+    }
+
+    public static void setPaneZ(int paneZ) {
+        threeDimensionalShape.paneZ = paneZ;
+    }
+
+    public static void setObserverX(int observerX) {
+        threeDimensionalShape.observerX = observerX;
+    }
+
+    public static void setObserverY(int observerY) {
+        threeDimensionalShape.observerY = observerY;
+    }
+
+    public static void setObserverZ(int observerZ) {
+        threeDimensionalShape.observerZ = observerZ;
+    }
+
+    public void setTwoD(Polygon twoD) {
+        this.twoD = twoD;
+    }
+
+    public void setThreeDFaces(Face[] threeDFaces) {
+        this.threeDFaces = threeDFaces;
+    }
+
+    public void setFaces(Face[] faces) {
+        this.faces = faces;
+    }
+    
+    
 }

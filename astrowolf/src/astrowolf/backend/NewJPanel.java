@@ -26,9 +26,9 @@ public class NewJPanel extends javax.swing.JPanel {
         Face[] faces={new Face(x,y,z,4), new Face(x1, y1, z1, 4)}; 
         shape=new threeDimensionalShape(faces,2);
         initComponents();
-                Timer t =new Timer(10, e -> {
+              Timer t =new Timer(10, e -> {
             
-            shape.moveZ(-10);
+            shape.moveZ(1);
             repaint();
             
         });
@@ -37,8 +37,6 @@ public class NewJPanel extends javax.swing.JPanel {
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         shape.draw(g);
-        
-
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,6 +46,12 @@ public class NewJPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -60,6 +64,10 @@ public class NewJPanel extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+
+    }//GEN-LAST:event_formKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
