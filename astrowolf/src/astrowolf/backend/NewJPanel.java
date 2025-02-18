@@ -19,18 +19,26 @@ public class NewJPanel extends javax.swing.JPanel {
 
         int[] x={1,300, 300,1};
         int[] y={1, 1, 300, 300};
-        int[] z={110,110,110,110};
+        int[] z={1110,1110,1110,1110};
         int[] x1={1,300,300, 1};
         int[] y1={1, 1, 300, 300};
-        int[] z1={200,200,200, 200};
+        int[] z1={1200,2200,800, 2200};
         Face[] faces={new Face(x,y,z,4), new Face(x1, y1, z1, 4)}; 
-        shape=new threeDimensionalShape(faces,1);
+        shape=new threeDimensionalShape(faces,2);
         initComponents();
+                Timer t =new Timer(10, e -> {
+            
+            shape.moveZ(-10);
+            repaint();
+            
+        });
+        t.start();
     }
     public void paintComponent(Graphics g){
+        super.paintComponent(g);
         shape.draw(g);
         
-    
+
     }
     /**
      * This method is called from within the constructor to initialize the form.

@@ -24,11 +24,17 @@ public class Face {
             facePoints[i][2]=z[i];
         }
     }
-    
-    public Face(){
-        numOfPoints = 1;
-        facePoints=new int[1][3];
-        for (int i=0;i<1;i++){
+    public void moveZ(int move){
+        System.out.println("run");
+        for(int i=0;i<numOfPoints;i++){
+            System.out.println("run");
+            facePoints[i][2]=facePoints[i][2]+move;
+        }
+    }
+    public Face(int numPoints){
+        numOfPoints = numPoints;
+        facePoints=new int[numPoints][3];
+        for (int i=0;i<numPoints;i++){
             facePoints[i][0]=0;
             facePoints[i][1]=0;
             facePoints[i][2]=0;
@@ -48,6 +54,7 @@ public class Face {
     }
     public int[] getPointXs(){
         int[] output=new int[numOfPoints];
+        System.out.println(numOfPoints);
         for(int i=0;i<numOfPoints;i++){
             output[i]=facePoints[i][0];
         }

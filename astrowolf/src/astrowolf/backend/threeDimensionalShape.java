@@ -22,7 +22,7 @@ public class threeDimensionalShape {
     public threeDimensionalShape(Face[] faces, int numFaces){
         this.faces=new Face [numFaces];
         threeDFaces=new Face[numFaces];
-        Arrays.fill(threeDFaces, new Face());
+        Arrays.fill(threeDFaces, new Face(4));
         for(int i=0;i<numFaces;i++){
             this.faces[i]=faces[i];
         }
@@ -32,22 +32,31 @@ public class threeDimensionalShape {
         double ySlope;
         for(int i=0;i<faces.length;i++){
             Face curFace=faces[i];
-            for(int j=0;j<faces.length;j++){
+            System.out.println(faces[i].getNumOfPoints());
+            for(int j=0;j<faces[i].getNumOfPoints();j++){
                 int zPoint=faces[i].getCoordinate(j,2);
                 //calculate slope
-                xSlope=((zPoint)-observerZ)/(curFace.getCoordinate(j,0)-observerX);
-                ySlope=(zPoint-observerZ)/(curFace.getCoordinate(j,1)-observerY);
-                //calculate points
-                threeDFaces[i].setCoordinate(j,0, (int)(paneZ/xSlope));
-                threeDFaces[i].setCoordinate(j,1,(int)(paneZ/ySlope));
+                xSlope=(double)((zPoint)-observerZ)/(curFace.getCoordinate(j,0)-observerX);
+                ySlope=(double)(zPoint-observerZ)/(curFace.getCoordinate(j,1)-observerY);                //calculate points
+                threeDFaces[i].setCoordinate(j,0, curFace.getCoordinate(j,0)-(int)(paneZ/xSlope));
+                threeDFaces[i].setCoordinate(j,1, curFace.getCoordinate(j,1) - (int)(paneZ/ySlope));
+                
             }
         }
     }
     public void draw(Graphics g){
         update();
         for(int i=0;i<threeDFaces.length;i++){
-            g.drawPolygon(faces[i].getPointXs(),faces[i].getPointYs(),faces[i].getNumOfPoints());
+            
+            System.out.println(Arrays.toString(threeDFaces[i].getPointXs()));
+            System.out.println(Arrays.toString(threeDFaces[i].getPointYs()));
+            g.drawPolygon(threeDFaces[i].getPointXs(),threeDFaces[i].getPointYs(),threeDFaces[i].getNumOfPoints());
         }
         
+    }
+    public void moveZ(int move){
+        for(int i=0;i<faces.length;i++){
+            faces[i].moveZ(move);
+        }
     }
 }
