@@ -35,10 +35,10 @@ public class threeDimensionalShape {
             for(int j=0;j<faces[i].getNumOfPoints();j++){
                 int zPoint=faces[i].getCoordinate(j,2);
                 //calculate slope
-                xSlope=(double)((zPoint)-observerZ)/(curFace.getCoordinate(j,0)-observerX);
-                ySlope=(double)(zPoint-observerZ)/(curFace.getCoordinate(j,1)-observerY);                //calculate points
-                threeDFaces[i].setCoordinate(j,0, curFace.getCoordinate(j,0)-(int)(paneZ/xSlope));
-                threeDFaces[i].setCoordinate(j,1, curFace.getCoordinate(j,1) - (int)(paneZ/ySlope));
+//                xSlope=(double)((zPoint)-observerZ)/(curFace.getCoordinate(j,0)-observerX);
+//                ySlope=(double)(zPoint-observerZ)/(curFace.getCoordinate(j,1)-observerY);                //calculate points
+                threeDFaces[i].setCoordinate(j,0, curFace.getCoordinate(j,0)*paneZ/zPoint);
+                threeDFaces[i].setCoordinate(j,1, curFace.getCoordinate(j,1)*paneZ/zPoint);
                 
             }
         }

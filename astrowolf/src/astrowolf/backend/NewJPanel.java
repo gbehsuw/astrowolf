@@ -19,10 +19,10 @@ public class NewJPanel extends javax.swing.JPanel {
 
         int[] x={1,300, 300,1};
         int[] y={1, 1, 300, 300};
-        int[] z={1110,1110,1110,1110};
+        int[] z={300,300,300,300};
         int[] x1={1,300,300, 1};
         int[] y1={1, 1, 300, 300};
-        int[] z1={1200,2200,800, 2200};
+        int[] z1={200,200,200,200};
         Face[] faces={new Face(x,y,z,4), new Face(x1, y1, z1, 4)}; 
         shape=new threeDimensionalShape(faces,2);
         initComponents();
