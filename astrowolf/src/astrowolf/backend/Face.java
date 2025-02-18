@@ -10,34 +10,60 @@ package astrowolf.backend;
  */
 public class Face {
     
-    private int[] face;
+    private int[][] facePoints;
     private int numOfPoints;
     private int[] RGB;
     
     // Face constructor
-    public Face(int[] face){
+    public Face(int[] x, int[] y, int[] z, int numPoints){
+        numOfPoints = numPoints;
+        facePoints=new int[numPoints][3];
+        for (int i=0;i<numPoints;i++){
+            facePoints[i][0]=x[i];
+            facePoints[i][1]=y[i];
+            facePoints[i][2]=z[i];
+        }
         
-        this.face = face;
-        numOfPoints = face.length;
         
     }
     
     // Set the colour of the face
-    private void setColour(int R, int G, int B){
+    public void setColour(int R, int G, int B){
         RGB[0] = R;
         RGB[1] = G;
         RGB[2] = B;
     }
     
     // Get the colour of the face
-    private int[] getColour(){
+    public int[] getColour(){
         return RGB;
     }
-    
-    // Get the points of the face
-    private int[] getFace(){
-        return face;
+    public int[] getPointXs(){
+        int[] output=new int[numOfPoints];
+        for(int i=0;i<numOfPoints;i++){
+            output[i]=facePoints[i][0];
+        }
+        return output;
     }
-    
+        public int[] getPointYs(){
+        int[] output=new int[numOfPoints];
+        for(int i=0;i<numOfPoints;i++){
+            output[i]=facePoints[i][1];
+        }
+        return output;
+    }
+        public int getNumOfPoints(){
+            return numOfPoints;
+        }
+    // Get the points of the face
+    public int[][] getFacePoints(){
+        return facePoints;
+    }
+    public int getCoordinate(int point,int xyz){
+        return facePoints[point][xyz];
+    }
+    public void setCoordinate(int point,int xyz, int newCord){
+        facePoints[point][xyz]=newCord;
+    }
     
 }
