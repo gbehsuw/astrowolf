@@ -10,4 +10,18 @@ package astrowolf.backend;
  */
 public class Face {
     
+    private int[] face;
+    private int numOfPoints;
+    
+    public Face(int[] face){
+        
+        this.face = face;
+        numOfPoints = face.length;
+        
+        
+    }
+    
+    private 
+    
+    
 }
