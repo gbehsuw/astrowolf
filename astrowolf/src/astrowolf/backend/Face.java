@@ -12,6 +12,7 @@ public class Face {
     
     private int[] face;
     private int numOfPoints;
+    private int[] RGB;
     
     public Face(int[] face){
         
@@ -21,7 +22,17 @@ public class Face {
         
     }
     
-    private 
+    private void setColour(int R, int G, int B){
+        RGB[0] = R;
+        RGB[1] = G;
+        RGB[2] = B;
+    }
+    private int[] getColour(){
+        return RGB;
+    }
+    private int[] getFace(){
+        return face;
+    }
     
     
 }
