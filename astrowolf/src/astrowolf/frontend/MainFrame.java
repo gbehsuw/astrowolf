@@ -4,6 +4,7 @@
  */
 package astrowolf.frontend;
 
+import astrowolf.backend.Const;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 
@@ -89,7 +90,7 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame j = new MainFrame();
-                j.setSize(new Dimension(800, 300));
+                j.setSize(new Dimension(Const.screenWidth, Const.screenHeight));
                 j.setVisible(true);
             }
         });

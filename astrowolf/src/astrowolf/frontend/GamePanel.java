@@ -4,6 +4,7 @@
  */
 package astrowolf.frontend;
 
+import astrowolf.backend.Bullet;
 import java.awt.Graphics;
 
 /**
@@ -11,6 +12,7 @@ import java.awt.Graphics;
  * @author mithu
  */
 public class GamePanel extends javax.swing.JPanel {
+        Bullet b = new Bullet(400, 300, 200, 200);
 
     /**
      * Creates new form GamePanel
@@ -21,7 +23,10 @@ public class GamePanel extends javax.swing.JPanel {
     
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawLine(0, 0, 10, 10);
+        b.drawBullet(g);
+        System.out.println(b.getX());
+        System.out.println(b.getY());
+        repaint();
     }
 
     /**
