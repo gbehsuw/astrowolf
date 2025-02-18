@@ -95,6 +95,7 @@ public class testf extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame j=new testf();
+                j.setSize(1000,800);
                 j.setVisible(true);
                 
             }

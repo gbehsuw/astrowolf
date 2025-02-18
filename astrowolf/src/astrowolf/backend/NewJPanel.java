@@ -17,10 +17,13 @@ public class NewJPanel extends javax.swing.JPanel {
     threeDimensionalShape shape;
     public NewJPanel() {
 
-        int[] x={3,20,30};
-        int[] y={50,20,10};
-        int[] z={10,20,30};
-        Face[] faces={new Face(x,y,z,3)}; 
+        int[] x={1,300, 300,1};
+        int[] y={1, 1, 300, 300};
+        int[] z={110,110,110,110};
+        int[] x1={1,300,300, 1};
+        int[] y1={1, 1, 300, 300};
+        int[] z1={200,200,200, 200};
+        Face[] faces={new Face(x,y,z,4), new Face(x1, y1, z1, 4)}; 
         shape=new threeDimensionalShape(faces,1);
         initComponents();
     }
