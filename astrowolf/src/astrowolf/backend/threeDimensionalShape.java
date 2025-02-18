@@ -19,7 +19,7 @@ public class threeDimensionalShape {
     private Face[] threeDFaces;
     private Face[] faces;
     public threeDimensionalShape(Face[] faces, int numFaces){
-        faces=new Face[numFaces];
+        this.faces=new Face [numFaces];
         threeDFaces=new Face[numFaces];
         for(int i=0;i<numFaces;i++){
             this.faces[i]=faces[i];

@@ -14,13 +14,20 @@ public class NewJPanel extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
+    threeDimensionalShape shape;
     public NewJPanel() {
-        Face[] faces={new Face(int{1}) 
-        threeDimensionalShape shape=new threeDimensionalShape()
+
+        int[] x={3,20,30};
+        int[] y={50,20,10};
+        int[] z={10,20,30};
+        Face[] faces={new Face(x,y,z,3)}; 
+        shape=new threeDimensionalShape(faces,1);
         initComponents();
     }
     public void paintComponent(Graphics g){
+        shape.draw(g);
         
+    
     }
     /**
      * This method is called from within the constructor to initialize the form.

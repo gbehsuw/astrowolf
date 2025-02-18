@@ -4,6 +4,9 @@
  */
 package astrowolf.backend;
 
+import java.awt.Graphics;
+import javax.swing.JFrame;
+
 /**
  *
  * @author ddrtm
@@ -91,7 +94,9 @@ public class testf extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new testf().setVisible(true);
+                JFrame j=new testf();
+                j.setVisible(true);
+                
             }
         });
     }
