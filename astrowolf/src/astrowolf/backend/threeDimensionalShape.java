@@ -5,6 +5,7 @@
 package astrowolf.backend;
 import java.awt.Polygon;
 import java.awt.Graphics;
+import java.util.Arrays;
 /**
  *
  * @author mithu
@@ -21,6 +22,7 @@ public class threeDimensionalShape {
     public threeDimensionalShape(Face[] faces, int numFaces){
         this.faces=new Face [numFaces];
         threeDFaces=new Face[numFaces];
+        Arrays.fill(threeDFaces, new Face());
         for(int i=0;i<numFaces;i++){
             this.faces[i]=faces[i];
         }

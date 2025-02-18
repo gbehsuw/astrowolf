@@ -23,8 +23,16 @@ public class Face {
             facePoints[i][1]=y[i];
             facePoints[i][2]=z[i];
         }
-        
-        
+    }
+    
+    public Face(){
+        numOfPoints = 1;
+        facePoints=new int[1][3];
+        for (int i=0;i<1;i++){
+            facePoints[i][0]=0;
+            facePoints[i][1]=0;
+            facePoints[i][2]=0;
+        }
     }
     
     // Set the colour of the face
