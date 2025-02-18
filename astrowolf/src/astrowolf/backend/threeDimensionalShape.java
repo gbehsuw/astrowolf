@@ -22,7 +22,8 @@ public class threeDimensionalShape {
     public threeDimensionalShape(Face[] faces, int numFaces){
         this.faces=new Face [numFaces];
         threeDFaces=new Face[numFaces];
-        Arrays.fill(threeDFaces, new Face(4));
+        for(int i=0;i<numFaces;i++){
+        threeDFaces[i]= new Face(4);}
         for(int i=0;i<numFaces;i++){
             this.faces[i]=faces[i];
         }

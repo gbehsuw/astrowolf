@@ -28,7 +28,7 @@ public class NewJPanel extends javax.swing.JPanel {
         initComponents();
               Timer t =new Timer(10, e -> {
             
-            shape.moveZ(1);
+//            shape.moveZ(1);
             repaint();
             
         });
